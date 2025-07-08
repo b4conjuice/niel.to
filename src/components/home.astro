@@ -1,0 +1,47 @@
+---
+import { socials, socialIcons } from '../lib/common'
+---
+
+<main class='flex flex-grow flex-col justify-center'>
+  <div
+    class='flex flex-col items-center justify-center space-y-3 bg-[url(/img/milky.jpg)] bg-cover bg-center py-32 lg:flex-grow lg:py-0'
+  >
+    <p
+      class='text-center leading-relaxed md:text-2xl lg:text-4xl lg:leading-10'
+    >
+      hi my name is
+      <a
+        class='text-cb-orange hover:text-cb-orange/75 underline'
+        href='/resume'
+      >
+        daniel</a
+      >
+      <br />
+      and i <a
+        class='text-cb-yellow hover:text-cb-yellow/75 underline'
+        href='/portfolio'
+      >
+        build</a
+      > things.
+    </p>
+    <ul class='flex space-x-4'>
+      {
+        socials.map(({ name, url }) => {
+          const Icon = socialIcons[name]
+          return (
+            <li>
+              <a
+                class='flex items-center justify-center'
+                href={url}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                {Icon && <Icon />}
+              </a>
+            </li>
+          )
+        })
+      }
+    </ul>
+  </div>
+</main>
