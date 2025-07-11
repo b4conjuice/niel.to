@@ -1,0 +1,17 @@
+---
+import { marked } from 'marked'
+import { getSecret } from 'astro:env/server'
+
+import Layout from '@/layouts/layout.astro'
+import Markdown from '@/components/markdown.astro'
+
+const response = await fetch(String(getSecret('RESUME_URL')))
+const { markdown } = await response.json()
+const content = marked.parse(markdown)
+---
+
+<Layout>
+  <Markdown content={content}>
+    {content}
+  </Markdown>
+</Layout>

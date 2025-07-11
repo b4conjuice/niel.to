@@ -1,25 +1,29 @@
 ---
-import "../styles/global.css";
-import { DEFAULT_TITLE } from "../lib/common";
+import '@/styles/global.css'
+import { DEFAULT_TITLE } from '@/lib/common'
+
+const backgroundColorClass =
+  Astro.props.backgroundColorClass ?? 'bg-cb-dark-blue'
+const backgroundClass = `flex min-h-screen flex-col ${backgroundColorClass} text-cb-white`
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.png" />
-    <link rel="shortcut icon" type="image/svg+xml" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/icon.png">
-		<meta name="generator" content={Astro.generator} />
-		<title>{DEFAULT_TITLE}</title>
-    <link rel="manifest" href="manifest.json" />
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' href='/favicon.png' />
+    <link rel='shortcut icon' type='image/svg+xml' href='/favicon.png' />
+    <link rel='apple-touch-icon' href='/icon.png' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{DEFAULT_TITLE}</title>
+    <link rel='manifest' href='manifest.json' />
     <meta name='theme-color' content='#15232d' />
-	</head>
-	<body>
-    <div class='flex min-h-screen flex-col bg-cb-dark-blue text-cb-white'>
+  </head>
+  <body>
+    <div class={backgroundClass}>
       <slot />
       <!-- <Footer /> -->
     </div>
-	</body>
+  </body>
 </html>
