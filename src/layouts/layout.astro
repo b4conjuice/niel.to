@@ -1,6 +1,7 @@
 ---
 import '@/styles/global.css'
 import { DEFAULT_TITLE } from '@/lib/common'
+import Footer from '@/components/footer.astro'
 
 const backgroundColorClass =
   Astro.props.backgroundColorClass ?? 'bg-cb-dark-blue'
@@ -23,7 +24,7 @@ const backgroundClass = `flex min-h-screen flex-col ${backgroundColorClass} text
   <body>
     <div class={backgroundClass}>
       <slot />
-      <!-- <Footer /> -->
+      <Footer />
     </div>
   </body>
 </html>
